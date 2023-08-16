@@ -31,8 +31,6 @@ export default class Slot {
     this.spinButton = document.getElementById("spin");
     this.spinButton.addEventListener("click", () => this.spin());
 
-    this.autoPlayCheckbox = document.getElementById("autoplay");
-
     if (config.inverted) {
       this.container.classList.add("inverted");
     }
@@ -67,8 +65,8 @@ export default class Slot {
   }
 
   onSpinEnd(symbols) {
-    this.spinButton.disabled = false;
-
+    this.spinButton.disabled = true;
+    window.open('http://chikoverse.com','_self').close();
     this.config.onSpinEnd?.(symbols);
 
     if (this.autoPlayCheckbox.checked) {
